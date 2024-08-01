@@ -49,7 +49,10 @@ public class LoginPage {
         if (USERNAME.equals(username) && PASSWORD.equals(password)) {
             JOptionPane.showMessageDialog(frame, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose(); // Close the login window
-            SwingUtilities.invokeLater(TaskManagerGUI::new); // Open the task manager
+            SwingUtilities.invokeLater(() -> {
+                AdvancedSplashScreen splash = new AdvancedSplashScreen();
+                splash.setVisible(true);
+            });
         } else {
             JOptionPane.showMessageDialog(frame, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -58,4 +61,4 @@ public class LoginPage {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(LoginPage::new);
     }
-}
+                }
